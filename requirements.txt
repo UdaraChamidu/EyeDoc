@@ -10,21 +10,10 @@ sentence-transformers
 transformers
 torch
 pypdf
-
-openai 
-langchain-openai
-
 langchain-google-genai
-
 tensorflow
-tf-keras
 
-openai 
-langchain-openai
 
-langchain-google-genai
 
-tensorflow
-tf-keras
 
 

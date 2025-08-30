@@ -85,7 +85,7 @@ Write a concise, patient-friendly overview with bullet points:
 - When it’s urgent / red flags
 - Prevention and risk factors
 
-Keep it ~150–200 words. Avoid jargon. If uncertain, mention that a clinical exam is needed.
+Keep it ~75–100 words. Avoid jargon. If uncertain, mention that a clinical exam is needed.
 """
 
     # Prefer RAG if the vectorstore is available, else fall back to plain LLM
@@ -113,7 +113,7 @@ The model's confidence is only {confidence:.0%}. Provide a brief caution plus a 
 - Typical tests to confirm
 - What the patient should do next
 
-Limit to ~120 words, bullet points, patient-friendly.
+Maximum Limit to ~80 words, bullet points, patient-friendly.
 """
     try:
         if st.session_state.get("vectorstore") is not None:
