@@ -224,7 +224,7 @@ if st.session_state.mode == "image":
                 diff = summarize_differential(confidence)
                 if diff:
                     st.markdown(diff)
-  
+   
   
 # 💬 Text-Only Mode
 elif st.session_state.mode == "text":
