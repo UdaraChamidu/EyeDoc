@@ -1,4 +1,5 @@
 .env
 env
 my_model.keras
+fusion_classifier.pth
 Kanski’s clinical ophthalmology _ a systematic approach.pdf
