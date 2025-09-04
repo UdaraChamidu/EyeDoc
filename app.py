@@ -89,10 +89,48 @@ if send_button and (text_input.strip() or uploaded_file):
         if user_image:
             st.image(user_image, caption="Uploaded Image", use_container_width=True)
 
-    # Typing indicator
+    # Typing indicator with animated dots
     placeholder = st.empty()
     with placeholder.container():
-        st.chat_message("assistant").markdown("Typing... ⏳")
+        st.markdown("""
+        <div style="display:flex; align-items:center; gap:5px;">
+            <span>Assistant is typing</span>
+            <span style="
+                display:inline-block;
+                width:6px;
+                height:6px;
+                background:#999;
+                border-radius:50%;
+                animation: bounce 1s infinite alternate;
+                animation-delay:0s;
+            "></span>
+            <span style="
+                display:inline-block;
+                width:6px;
+                height:6px;
+                background:#999;
+                border-radius:50%;
+                animation: bounce 1s infinite alternate;
+                animation-delay:0.2s;
+            "></span>
+            <span style="
+                display:inline-block;
+                width:6px;
+                height:6px;
+                background:#999;
+                border-radius:50%;
+                animation: bounce 1s infinite alternate;
+                animation-delay:0.4s;
+            "></span>
+        </div>
+        <style>
+        @keyframes bounce {
+            0% { transform: translateY(0); opacity:0.3; }
+            50% { transform: translateY(-6px); opacity:1; }
+            100% { transform: translateY(0); opacity:0.3; }
+        }
+        </style>
+        """, unsafe_allow_html=True)
 
     # -----------------------------
     # Generate AI response
