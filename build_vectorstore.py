@@ -5,7 +5,7 @@ from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.vectorstores import FAISS
 
 # Path to your medical book
-pdf_path = "Kanski’s clinical ophthalmology _ a systematic approach.pdf"
+pdf_path = "knowledge_base/Kanski’s clinical ophthalmology _ a systematic approach.pdf"
 
 # Load and split PDF
 loader = PyPDFLoader(pdf_path)

@@ -31,7 +31,7 @@ from tensorflow.keras.applications.inception_v3 import preprocess_input
 # -----------------------------
 @st.cache_resource
 def load_cnn_model():
-    return tf.keras.models.load_model("my_model.keras")
+    return tf.keras.models.load_model("model_files/my_model.keras")
 
 cnn_model = load_cnn_model()
 
@@ -74,7 +74,7 @@ def load_multimodal_model():
     num_classes = 4  # Cataract, Diabetic Retinopathy, Glaucoma, Normal
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model = FusionClassifier(num_classes).to(device)
-    model.load_state_dict(torch.load("fusion_classifier.pth", map_location=device))
+    model.load_state_dict(torch.load("model_files/fusion_classifier.pth", map_location=device))
     model.eval()
 
     tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')

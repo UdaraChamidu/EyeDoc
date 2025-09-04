@@ -1,6 +1,7 @@
 .env
 env
-my_model.keras
-cnn_model_new.keras
-fusion_classifier.pth
-Kanski’s clinical ophthalmology _ a systematic approach.pdf
+model_files/my_model.keras
+model_files/cnn_model_new.keras
+model_files/fusion_classifier.pth
+knowledge_base/Kanski’s clinical ophthalmology _ a systematic approach.pdf
+
