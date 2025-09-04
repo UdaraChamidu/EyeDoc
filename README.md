@@ -29,6 +29,10 @@ This project is part of a research initiative to improve diagnostic support usin
 
 ---
 
+<img width="1862" height="831" alt="image" src="https://github.com/user-attachments/assets/67289dd0-567f-40de-b34b-e4f14b0464ab" />
+
+---
+
 ## 🛠️ Architecture
 
 ```
