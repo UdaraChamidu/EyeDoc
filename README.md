@@ -31,7 +31,7 @@ This project is part of a research initiative to improve diagnostic support usin
 
 ## 🛠️ Architecture
 
-```mermaid
+```
 flowchart LR
     UserInput[User Input (Text / Image)] --> ChatInterface[Chat Interface]
     ChatInterface --> Controller[Controller Agent]
