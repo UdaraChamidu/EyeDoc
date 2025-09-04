@@ -32,16 +32,16 @@ This project is part of a research initiative to improve diagnostic support usin
 ## 🛠️ Architecture
 
 ```
-flowchart LR
     UserInput[User Input (Text / Image)] --> ChatInterface[Chat Interface]
-    ChatInterface --> Controller[Controller Agent]
+    ChatInterface --> Controller
     Controller -->|Text Only| RAGModel[RAG + LLM]
     Controller -->|Image Only| ImageModel[CNN/InceptionV3 Classifier]
     Controller -->|Text + Image| MultiModel[Fusion Model: BERT + InceptionV3]
     MultiModel --> Response[AI Response]
     ImageModel --> Response
     RAGModel --> Response
-    Response --> ChatInterface
+    Response --> Gemini LLM
+    Response --> User Interface
 ```
 
 ## 🧩 Components
@@ -111,15 +111,16 @@ streamlit run app.py
 ```
 eye-disease-assistant/
 │
-├─ app.py                 # Streamlit front-end
+├─ app.py                       # Streamlit front-end
 ├─ model_codes/
-│   ├─ image_model.py     # CNN-based image classifier
-│   ├─ multimodel_model.py# Fusion multimodal model
-│   └─ rag_model.py       # RAG + LLM chain
-├─ vectorstore/           # FAISS embeddings for RAG
-├─ fusion_classifier.pth  # Saved multimodal model
-├─ my_model.keras         # Saved image model
-└─ requirements.txt       # Python dependencies
+│   ├─ image_model.py           # CNN-based image classifier
+│   ├─ multimodel_model.py      # Fusion multimodal model
+│   └─ rag_model.py             # RAG + LLM chain
+├─ vectorstore/                 # FAISS embeddings for RAG
+├─ model_files/
+|   |_ fusion_classifier.pth    # Saved multimodal model
+|   ├─ my_model.keras           # Saved image model
+└─ requirements.txt             # Python dependencies
 ```
 
 ## ⚡ Future Improvements
