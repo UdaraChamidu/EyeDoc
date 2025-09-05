@@ -5,7 +5,7 @@ A multimodal AI assistant for **eye disease classification and explanation**, in
 This project is part of a research initiative to improve diagnostic support using **vision transformers**, **RAG-based retrieval**, and **LLMs** for patient-friendly explanations.
 
 --- 
-
+ 
 ## 🚀 Features
 
 - **Multimodal Input**:  
