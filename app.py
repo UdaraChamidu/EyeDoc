@@ -50,134 +50,178 @@ st.markdown("""
 <style>
     /* Main container styling */
     .main > div {
-        padding-top: 2rem;
-        padding-bottom: 2rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+    
+    /* Global styles */
+    .stApp {
+        background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
     }
     
     /* Title styling */
     .app-title {
-        text-align: top;
-        color: #2c3e50;
-        margin-bottom: 1rem;
-        padding: 1rem;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        text-align: center;
+        padding: 1.5rem;
+        background: linear-gradient(135deg, #4a6fa5 0%, #2c3e50 100%);
         color: white;
-        border-radius: 10px;
+        border-radius: 12px;
         font-size: 2rem;
         font-weight: bold;
-        
+        margin-bottom: 1.5rem;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
     
     /* Welcome message */
     .welcome-message {
         text-align: center;
-        padding: 2rem;
-        background-color: #f8f9ff;
-        border-radius: 15px;
-        border: 2px dashed #667eea;
+        padding: 2.5rem;
+        background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+        border-radius: 16px;
+        border: 2px dashed #c3cfe2;
         margin: 2rem 0;
-        color: #2c3e50;
+        color: #2d3748;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
     
     /* Sidebar styling */
     .css-1d391kg {
-        background-color: #f8f9fa;
+        background: linear-gradient(180deg, #4a6fa5 0%, #2c3e50 100%);
+        color: white;
     }
     
     /* Chat container */
     .chat-container {
-        height: 0vh;
+        background-color: #f8fafc;
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        box-shadow: inset 0 2px 8px rgba(0,0,0,0.05);
+        max-height: 50vh;
+        overflow-y: auto;
     }
     
     /* Message styling */
     .user-message {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #7194EB 0%, #516EB5 100%);
         color: white;
-        padding: 12px 16px;
+        padding: 14px 18px;
         border-radius: 18px 18px 4px 18px;
-        margin: 8px 0;
+        margin: 12px 0;
         max-width: 80%;
         margin-left: auto;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        line-height: 1.5;
     }
     
     .assistant-message {
-        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        color: white;
-        padding: 12px 16px;
+        background: linear-gradient(135deg, #A2C4F2 0%, #C5DCF0 100%);
+        color: #2d3748;
+        padding: 14px 18px;
         border-radius: 18px 18px 18px 4px;
-        margin: 8px 0;
+        margin: 12px 0;
         max-width: 80%;
         margin-right: auto;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        line-height: 1.5;
+        border: 1px solid #e2e8f0;
     }
     
-    /* Input area styling */
+    /* Simple Input Area Styling */
     .input-container {
-        
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        margin-top: 20px;
+    }
+    
+    /* Simple text area styling */
+    .stTextArea > div > div > textarea {
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        padding: 12px;
+        font-size: 14px;
+        line-height: 1.5;
+        resize: vertical;
+    }
+    
+    /* Simple file uploader styling */
+    .stFileUploader > div {
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        padding: 10px;
+        background-color: #f9fafb;
+    }
+    
+    .stFileUploader label {
+        font-size: 14px;
+        font-weight: 500;
+        color: #374151;
+    }
+    
+    /* Simple button styling */
+    .stButton > button {
+        background-color: #4a6fa5;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 12px 24px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+    
+    .stButton > button:hover {
+        background-color: #3d5a91;
+    }
+    
+    .stButton > button:focus {
+        outline: 2px solid #4a6fa5;
+        outline-offset: 2px;
     }
     
     /* Chat title styling */
     .chat-title {
         text-align: center;
-        color: #333;
-        margin-bottom: 0.5rem;
         padding: 1rem;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #4a6fa5 0%, #2c3e50 100%);
         color: white;
         border-radius: 10px;
         font-weight: 600;
-    }
-    
-    /* Button styling */
-    .stButton > button {
-        border-radius: 8px;
-        border: none;
-        font-weight: 500;
-        transition: all 0.3s ease;
-    }
-    
-    .stButton > button:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
-    
-    /* File uploader styling */
-    .uploadedFile {
-        border-radius: 8px;
-        border: 2px dashed #667eea;
-        padding: 1rem;
-        text-align: center;
-        background-color: #f8f9ff;
+        margin-bottom: 1.5rem;
     }
     
     /* Typing indicator */
     .typing-indicator {
         display: flex;
         align-items: center;
-        gap: 8px;
-        padding: 12px 16px;
-        background-color: #e9ecef;
+        gap: 12px;
+        padding: 16px 20px;
+        background-color: #A2C4F2;
         border-radius: 18px;
-        margin: 8px 0;
-        max-width: 200px;
+        margin: 12px 0;
+        max-width: 220px;
         animation: pulse 1.5s ease-in-out infinite alternate;
+        color: black;
     }
     
     @keyframes pulse {
-        from { opacity: 0.6; }
+        from { opacity: 0.7; }
         to { opacity: 1; }
     }
     
     .typing-dots {
         display: inline-flex;
-        gap: 4px;
+        gap: 6px;
     }
     
     .typing-dot {
-        width: 8px;
-        height: 8px;
-        background-color: #667eea;
+        width: 10px;
+        height: 10px;
+        background-color: #3B4A6E;
         border-radius: 50%;
         animation: bounce 1.4s ease-in-out infinite both;
     }
@@ -186,39 +230,55 @@ st.markdown("""
     .typing-dot:nth-child(2) { animation-delay: -0.16s; }
     
     @keyframes bounce {
-        0%, 80%, 100% { transform: scale(0); }
-        40% { transform: scale(1); }
-    }
-    
-    /* Welcome message */
-    .welcome-message {
-        text-align: center;
-        color: #666;
-        font-style: normal;
-        padding: 2rem;
-        background-color: #f8f9ff;
-        border-radius: 10px;
-        border: 2px dashed #667eea;
-        margin: 2rem 0;
+        0%, 80%, 100% { transform: scale(0.8); }
+        40% { transform: scale(1.2); }
     }
     
     /* Scrollbar styling */
     .chat-container::-webkit-scrollbar {
-        width: 6px;
+        width: 8px;
     }
     
     .chat-container::-webkit-scrollbar-track {
         background: #f1f1f1;
-        border-radius: 10px;
+        border-radius: 4px;
     }
     
     .chat-container::-webkit-scrollbar-thumb {
-        background: #667eea;
-        border-radius: 10px;
+        background: #c1c1c1;
+        border-radius: 4px;
     }
     
     .chat-container::-webkit-scrollbar-thumb:hover {
-        background: #764ba2;
+        background: #a8a8a8;
+    }
+    
+    /* Sidebar button styling */
+    .sidebar-button {
+        width: 100%;
+        border-radius: 12px;
+        padding: 12px;
+        margin: 8px 0;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+    
+    .sidebar-button:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
+    }
+    
+    /* Metric cards */
+    .metric-card {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 12px;
+        margin: 8px 0;
+        text-align: center;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -227,17 +287,17 @@ st.markdown("""
 # Enhanced Sidebar
 # ---------------------------
 with st.sidebar:
-    st.markdown('<div class="chat-title">🧑‍⚕️ Eye Disease Assistant</div>', unsafe_allow_html=True)
+    st.markdown('<div class="chat-title">👁️ Eye Disease Assistant</div>', unsafe_allow_html=True)
     
     # New chat button (prominent)
-    if st.button("✨ Start New Chat", use_container_width=True, type="primary"):
+    if st.button("🆕 New Chat", use_container_width=True, type="primary", key="new_chat_btn"):
         new_chat()
         st.rerun()
     
     st.markdown("---")
     
     # Chat history with better UI
-    st.subheader("📋 Chat History")
+    st.subheader("💬 Chat History", anchor=False)
     
     if len(st.session_state.chats) > 0:
         for chat_id, chat_data in st.session_state.chats.items():
@@ -248,11 +308,12 @@ with st.sidebar:
             col1, col2 = st.columns([4, 1])
             
             with col1:
+                button_type = "primary" if is_active else "secondary"
                 if st.button(
-                    f"{'🟢 ' if is_active else '⚪ '}{chat_title}", 
+                    f"{'🔹 ' if is_active else '🔸 '}{chat_title}", 
                     key=f"chat_{chat_id}",
                     use_container_width=True,
-                    type="primary" if is_active else "secondary"
+                    type=button_type
                 ):
                     st.session_state.active_chat = chat_id
                     st.session_state.messages = chat_data["messages"]
@@ -267,12 +328,21 @@ with st.sidebar:
     st.markdown("---")
     
     # Statistics
+    st.subheader("📊 Statistics", anchor=False)
     active_chat_data = st.session_state.chats[st.session_state.active_chat]
     message_count = len(active_chat_data["messages"])
-    st.metric("Messages in current chat", message_count)
-    st.metric("Total chats", len(st.session_state.chats))
+    
+    col1, col2 = st.columns(2)
+    with col1:
+        st.metric("Current Messages", message_count)
+    with col2:
+        st.metric("Total Chats", len(st.session_state.chats))
     
     st.markdown("---")
+    
+    # Information section
+    st.subheader("ℹ️ About", anchor=False)
+    st.info("This assistant helps with eye disease information and image analysis. For medical diagnosis, always consult a healthcare professional.")
     
     # Clear all button
     if st.button("🗑️ Clear All Chats", use_container_width=True, type="secondary"):
@@ -292,31 +362,33 @@ with st.sidebar:
 # ---------------------------
 
 # Title
-st.markdown('<div class="app-title">🧑‍⚕️ Eye Disease Assistant</div>', unsafe_allow_html=True)
+st.markdown('<div class="app-title">👁️EyeDoc   |   Eye Disease Assistant</div>', unsafe_allow_html=True)
 
 # Welcome message when no messages exist
 if len(active_messages()) == 0:
     st.markdown('''
     <div class="welcome-message">
-        <h3>👋 Hello! I'm your Eye Disease Assistant</h3>
-        <p>I can help you with information about eye diseases, analyze eye images, and answer your questions.</p>
-        <p>You can:</p>
-        <ul style="text-align: left;">
-            <li>Ask me about eye conditions and symptoms</li>
-            <li>Upload an image of an eye for analysis</li>
-            <li>Get information about treatments and prevention</li>
-        </ul>
-        <b>Start by typing a message or uploading an image below!</b>
+        <h3>👋 Hello! I'm EyeDoc ! Your Eye Disease Assistant</h3>
+        <p>I can help you with information about eye diseases, analyze scanned eye images, and answer your questions.</p>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 24px;">
+            <div style="background: rgba(74, 111, 165, 0.1); padding: 16px; border-radius: 12px;">
+                <h4>💬 Ask Questions</h4>
+                <p>Get information about eye conditions, symptoms, and treatments</p>
+            </div>
+            <div style="background: rgba(74, 111, 165, 0.1); padding: 16px; border-radius: 12px;">
+                <h4>🖼️ Upload OCT Scan Images</h4>
+                <p>Upload eye images for analysis and preliminary assessment</p>
+            </div>
+        </div>
+        <p style="margin-top: 24px;"><b>Start by typing a message or uploading an image below!</b></p>
     </div>
     ''', unsafe_allow_html=True)
 
 # Current chat title
 current_chat_title = st.session_state.chats[st.session_state.active_chat]["title"]
-st.markdown(f'<div class="chat-title">💬 {current_chat_title}</div>', unsafe_allow_html=True)
 
 # Chat messages container
 with st.container():
-    st.markdown('<div class="chat-container">', unsafe_allow_html=True)
     
     messages = active_messages()
     
@@ -344,12 +416,12 @@ with st.container():
     if st.session_state.get('typing', False):
         st.markdown('''
         <div class="typing-indicator">
-            <span>Assistant is thinking</span>
             <div class="typing-dots">
                 <div class="typing-dot"></div>
                 <div class="typing-dot"></div>
                 <div class="typing-dot"></div>
             </div>
+            <span>EyeDoc is thinking</span>
         </div>
         ''', unsafe_allow_html=True)
     
@@ -357,38 +429,31 @@ with st.container():
 
 
 # ---------------------------
-# Enhanced Input Area
+# Simple and Professional Input Area
 # ---------------------------
-st.markdown('<div class="input-container">', unsafe_allow_html=True)
 
-# Create input form
-with st.form(key="chat_form", clear_on_submit=True):
+# Use form to handle input clearing properly
+with st.form(key="message_form", clear_on_submit=True):
     # Text input
     text_input = st.text_area(
-        "Type your message here...", 
-        height=100, 
-        placeholder="Ask me about eye diseases, symptoms, or upload an image for analysis...",
-        label_visibility="collapsed"
+        "Message",
+        height=80,
+        placeholder="Type your disease, symptoms, or concerns here...",
+        key="message_text_input"
     )
     
     # File upload
     uploaded_file = st.file_uploader(
-        "📎 Upload an eye image (optional)", 
+        "Upload OCT Images Only", 
         type=["png", "jpg", "jpeg"],
-        help="Upload an image of an eye for disease detection"
+        key="image_file_input"
     )
     
-    # Submit button
-    col1, col2, col3 = st.columns([2, 1, 2])
-    with col2:
-        send_button = st.form_submit_button("🚀 Send Message", use_container_width=True, type="primary")
+    # Send button
+    send_clicked = st.form_submit_button("Send", type="primary", use_container_width=True)
 
-st.markdown('</div>', unsafe_allow_html=True)
-
-# ---------------------------
-# Enhanced Message Processing
-# ---------------------------
-if send_button and (text_input.strip() or uploaded_file):
+# Handle form submission
+if send_clicked and (text_input.strip() or uploaded_file):
     query = text_input.strip()
     user_image = uploaded_file if uploaded_file else None
 
@@ -403,7 +468,11 @@ if send_button and (text_input.strip() or uploaded_file):
     st.session_state.typing = True
     st.rerun()
 
-# Process AI response if typing
+st.markdown('</div>', unsafe_allow_html=True)
+
+# ---------------------------
+# Enhanced Message Processing
+# ---------------------------
 if st.session_state.get('typing', False):
     try:
         # Simulate processing time
@@ -465,9 +534,9 @@ if st.session_state.get('typing', False):
 # ---------------------------
 st.markdown("---")
 st.markdown("""
-<div style="text-align: center; color: #666; padding: 1rem;">
+<div style="text-align: center; color: #666; padding: 0.5rem;">
     <small>
-    🧑‍⚕️ <strong>Eye Disease Assistant</strong> • 
+    👁️ <strong>Eye Disease Assistant</strong> • 
     Powered by AI • 
     For educational purposes only - consult a medical professional for diagnosis
     </small>
