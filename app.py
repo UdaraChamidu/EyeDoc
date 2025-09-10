@@ -183,6 +183,36 @@ st.markdown("""
         outline-offset: 2px;
     }
     
+    /* Custom Send Button Styling */
+    .stFormSubmitButton > button {
+        background: linear-gradient(135deg, #4a6fa5 0%, #2c3e50 100%) !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 8px !important;
+        padding: 12px 24px !important;
+        font-size: 16px !important;
+        font-weight: 600 !important;
+        cursor: pointer !important;
+        transition: all 0.3s ease !important;
+        box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3) !important;
+    }
+    
+    .stFormSubmitButton > button:hover {
+        background: linear-gradient(135deg, #4a6fa5 0%, #2c3e50 100%) !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 0 6px 16px rgba(40, 167, 69, 0.4) !important;
+    }
+    
+    .stFormSubmitButton > button:focus {
+        outline: 2px solid #4a6fa5 !important;
+        outline-offset: 2px !important;
+    }
+    
+    .stFormSubmitButton > button:active {
+        transform: translateY(0px) !important;
+        box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3) !important;
+    }
+    
     /* Chat title styling */
     .chat-title {
         text-align: center;
