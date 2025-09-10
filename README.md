@@ -4,8 +4,8 @@ A multimodal AI assistant for **eye disease classification and explanation**, in
 
 This project is part of a research initiative to improve diagnostic support using **vision transformers**, **RAG-based retrieval**, and **LLMs** for patient-friendly explanations.
 
----
-
+--- 
+ 
 ## 🚀 Features
 
 - **Multimodal Input**:  
@@ -26,6 +26,10 @@ This project is part of a research initiative to improve diagnostic support usin
 - **Patient-Friendly Explanations**:  
   - Uses **RAG-based retrieval** to provide simple explanations of predicted eye diseases.  
   - Supports diseases: **Glaucoma, Cataract, Diabetic Retinopathy, Normal**.
+
+---
+
+<img width="1862" height="831" alt="image" src="https://github.com/user-attachments/assets/67289dd0-567f-40de-b34b-e4f14b0464ab" />
 
 ---
 
