@@ -66,7 +66,7 @@ st.markdown("""
         background: linear-gradient(135deg, #4a6fa5 0%, #2c3e50 100%);
         color: white;
         border-radius: 12px;
-        font-size: 2rem;
+        font-size: 3.2rem;
         font-weight: bold;
         margin-bottom: 1.5rem;
         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -362,7 +362,7 @@ with st.sidebar:
 # ---------------------------
 
 # Title
-st.markdown('<div class="app-title">👁️EyeDoc   |   Eye Disease Assistant</div>', unsafe_allow_html=True)
+st.markdown('<div class="app-title">👁️EyeDoc     |     Eye Disease Assistant</div>', unsafe_allow_html=True)
 
 # Welcome message when no messages exist
 if len(active_messages()) == 0:
