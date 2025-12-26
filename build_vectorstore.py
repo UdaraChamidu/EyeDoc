@@ -1,22 +1,29 @@
 import os
 from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.embeddings import HuggingFaceEmbeddings
-from langchain.vectorstores import FAISS
+from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_community.vectorstores import FAISS
 
-# Path to your medical book
-pdf_path = "knowledge_base/Kanski’s clinical ophthalmology _ a systematic approach.pdf"
+def build_vectorstore(pdf_path: str, save_path: str = "vectorstore/eye_faiss"):
+    if not os.path.exists(pdf_path):
+        raise FileNotFoundError(f"❌ PDF not found: {pdf_path}")
 
-# Load and split PDF
-loader = PyPDFLoader(pdf_path)
-documents = loader.load()
-splitter = RecursiveCharacterTextSplitter(chunk_size=200, chunk_overlap=40)
-chunks = splitter.split_documents(documents)
+    print("📄 Loading PDF...")
+    loader = PyPDFLoader(pdf_path)
+    documents = loader.load()
 
-# Create embeddings and vectorstore
-embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L12-v2")
-vectorstore = FAISS.from_documents(chunks, embedding=embeddings)
+    print("✂️ Splitting into chunks...")
+    splitter = RecursiveCharacterTextSplitter(chunk_size=200, chunk_overlap=40)
+    chunks = splitter.split_documents(documents)
 
-# Save to disk
-vectorstore.save_local("vectorstore/eye_faiss")
-print("✅ Vectorstore saved to 'vectorstore/eye_faiss'")
+    print("🔍 Creating embeddings...")
+    embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L12-v2")
+
+    print("📦 Building FAISS vectorstore...")
+    vectorstore = FAISS.from_documents(chunks, embedding=embeddings)
+
+    print(f"💾 Saving to {save_path} ...")
+    vectorstore.save_local(save_path)
+
+    print("✅ Vectorstore built and saved successfully!")
+    return vectorstore

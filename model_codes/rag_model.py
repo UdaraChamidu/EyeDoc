@@ -8,6 +8,7 @@ from langchain.chains import ConversationalRetrievalChain
 from langchain.prompts import PromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI
 from dotenv import load_dotenv
+from build_vectorstore import build_vectorstore
 
 load_dotenv()
 warnings.filterwarnings("ignore")
@@ -38,11 +39,24 @@ class RAGAssistant:
     def load_vectorstore(self):
         if self.vectorstore is None:
             embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L12-v2")
-            self.vectorstore = FAISS.load_local(
-                "vectorstore/eye_faiss",
-                embeddings,
-                allow_dangerous_deserialization=True
-            )
+            vectorstore_path = "vectorstore/eye_faiss"
+
+            try:
+                # Try to load existing vectorstore
+                self.vectorstore = FAISS.load_local(
+                    vectorstore_path,
+                    embeddings,
+                    allow_dangerous_deserialization=True
+                )
+                print("✅ Loaded existing FAISS vectorstore")
+
+            except Exception as e:
+                print(f"⚠️ Failed to load FAISS vectorstore: {e}")
+                print("🔄 Rebuilding vectorstore from PDF...")
+
+                pdf_path = "knowledge_base/Kanski’s clinical ophthalmology _ a systematic approach.pdf"
+                self.vectorstore = build_vectorstore(pdf_path, vectorstore_path)
+
 
     def load_memory(self):
         if self.memory is None and self.vectorstore:
